@@ -3,7 +3,7 @@
 
 
 These files include the codes and data to re-produce the results of the work  _Resolving the stellar-collapse and hierarchical-merger origins of the coalescing black holes_, arXiv: To be updated
-, [Yin-Jie Li](https://inspirehep.net/authors/1838354) ,  [Yuan-Zhu Wang](https://inspirehep.net/authors/1664025), and  [Shao-Peng Tang](https://inspirehep.net/authors/1838355) 
+, Authors: [Yin-Jie Li](https://inspirehep.net/authors/1838354) ,  [Yuan-Zhu Wang](https://inspirehep.net/authors/1664025),  [Shao-Peng Tang](https://inspirehep.net/authors/1838355), [Shi-Jie Gao], [Dao-Cheng Wu] 
 #### Main requirements
 - [BILBY](https://git.ligo.org/lscsoft/bilby)
 - [PyMultiNest](https://johannesbuchner.github.io/PyMultiNest/install.html)
