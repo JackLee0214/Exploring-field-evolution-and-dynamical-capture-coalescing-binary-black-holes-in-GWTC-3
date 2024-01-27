@@ -10,6 +10,9 @@ colors=['lightcoral','sandybrown','darkorange','goldenrod','olive','palegreen','
 outdir='results'
 fig_dir='figures'
 
+
+"""
+#If json file
 ###### read results from the main model
 with open('./{}/Three_pop_result.json'.format(outdir)) as a:
     data=json.load(a)
@@ -20,10 +23,38 @@ with open('./{}/Two_pop_result.json'.format(outdir)) as a:
     data=json.load(a)
 post2=data['posterior']['content']
 
+with open('./{}/Two_pop_1_result.json'.format(outdir)) as a:
+    data=json.load(a)
+post3=data['posterior']['content']
+
+with open('./{}/Two_pop_varmut_result.json'.format(outdir)) as a:
+    data=json.load(a)
+post4=data['posterior']['content']
+
+with open('./{}/Two_pop_restric_05_result.json'.format(outdir)) as a:
+    data=json.load(a)
+post5=data['posterior']['content']
+"""
+
+#The posteriors, pickel file
+with open('./{}/Three_pop_result.pickle'.format(outdir), 'rb') as fp:
+    post1 = pickle.load(fp)
+    
+with open('./{}/Two_pop_result.pickle'.format(outdir), 'rb') as fp:
+    post2 = pickle.load(fp)
+
+with open('./{}/Two_pop_1_result.pickle'.format(outdir), 'rb') as fp:
+    post3 = pickle.load(fp)
+
+with open('./{}/Two_pop_varmut_result.pickle'.format(outdir), 'rb') as fp:
+    post4 = pickle.load(fp)
+
+with open('./{}/Two_pop_restric_05_result.pickle'.format(outdir), 'rb') as fp:
+    post5 = pickle.load(fp)
+
 ##########################
 #For main model
 ##########################
-"""
 
 print('ploting figure1!')
 
@@ -79,9 +110,6 @@ Two_pop_plot_mass_dist(post2,colors=["#4d9221","#08306b","#e31a1c"],filename='./
 ######### ploting figure12
 
 print('ploting figure12!')
-with open('./{}/Two_pop_1_result.json'.format(outdir)) as a:
-    data=json.load(a)
-post3=data['posterior']['content']
 
 params=[ 'mu_a', 'sigma_a', 'beta1', 'alpha1', 'sigma_t1', 'beta2', 'alpha2', 'r2']
 show_keys=[r'$\mu_{{\rm a}}$',r'$\sigma_{{\rm a}}$',r'$\beta_{\rm A}$',r'$\alpha_{\rm A}$',r'$\sigma_{{\rm t}}$',r'$\beta_{\rm I}$',r'$\alpha_{\rm I}$',r'$r_{\rm I}$']
@@ -90,19 +118,14 @@ plot_corner(post3,params=params,show_keys=show_keys,color='orange',filename='./{
 ######### ploting figure10 figure11
 
 print('ploting figure11!')
-with open('./{}/Two_pop_varmut_result.json'.format(outdir)) as a:
-    data=json.load(a)
-post4=data['posterior']['content']
 params=[ 'mu_t1', 'sigma_t1']
 show_keys=[r'$\mu_{{\rm t}}$',r'$\sigma_{{\rm t}}$']
 plot_corner(post4,params=params,show_keys=show_keys,color='purple',filename='./{}/mut_corner.pdf'.format(fig_dir))
 print('ploting figure10!')
 Two_pop_plot_mass_dist(post4,colors=["#4d9221","#08306b","#e31a1c"],filename='./{}/Two_pop_varmut_mqact.pdf'.format(fig_dir),Nsample=2000)
-"""
+
 ######### ploting figure9
 
 print('ploting figure9!')
-with open('./{}/Two_pop_restric_05_result.json'.format(outdir)) as a:
-    data=json.load(a)
-post5=data['posterior']['content']
 Two_pop_plot_mass_dist(post5,colors=["#4d9221","#08306b","#e31a1c"],filename='./{}/Two_pop_restrict_mqact.pdf'.format(fig_dir),Nsample=2000)
+
