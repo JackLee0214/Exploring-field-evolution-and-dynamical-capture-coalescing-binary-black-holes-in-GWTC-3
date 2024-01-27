@@ -26,7 +26,7 @@ The inferred results `*.json` will be saved to `results`
 
 #### Results
 - `Three_pop_result.pickle` is the posterior samples inferred by the main model.
-- `Two_pop_result.pickle` is the events' samples reweighed by the Extend Default model.
+- `Two_pop_result.pickle` is the events' samples inferred by the Extend Default model.
 
 #### Generate figures
 Run the python script `Figure_script.py`
